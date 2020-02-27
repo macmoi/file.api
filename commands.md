@@ -44,10 +44,18 @@ dotnet add file.Api/file.Api.csproj reference file.Core/file.Core.csproj file.Se
 -------------------------------
 ## Configuring EF Core 
 
-EF Core is necessary to access to our database, in our case we're going to use MySQL Server as DBMS but any other DBMS can be used (i.e: SQL Server, PostgreSQL, MongoDB, Oracle...). To archive this we need to add the dependencies to our project, and also add EFCore to our system because EFCore dosen't come as default with NETCore framework anymore.
+EF Core is necessary to access to our database, in our case we're going to use MySQL Server as DBMS but any other DBMS can be used (i.e: SQL Server, PostgreSQL, MongoDB, Oracle...). To archive this we need to add the dependencies to our project, and also we need to add EFCore to our system because NETCore dosen't come with the ORM by default.
 
 ```bash
 dotnet tool install --global dotnet-ef
 ```
 
 Now we can execute the `dotnet ef` command on the CLI
+
+Next step to do is add dependencies on the Persistance project. To archive that we execute the following commands inside the root folder of the project (the same folder where solution file are):
+```bash
+dotnet add file.Persistance/file.Persistance.csproj package Microsoft.EntityFrameworkCore
+dotnet add file.Persistance/file.Persistance.csproj package Microsoft.EntityFrameworkCore.Design
+dotnet add file.Persistance/file.Persistance.csproj package Pomelo.EntityFrameworkCore.MySql --version 3.1.1
+```
+As you can see, we are using the [Pomelo.EntityFrameworkCore.MySql]() Dependencies, the reason is because Oracle haven't updated their [official driver](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html) for MySQL to the last version of NETCore. Pomelo is an Open Source driver developed by the community to bring support for .NETCore 3.X
