@@ -1,6 +1,6 @@
 namespace file.Core.Models
 {
-    public class File
+    public class Attachment
     {
         public int id { get; set; }
         public string fileName { get; set; }
