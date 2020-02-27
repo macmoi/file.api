@@ -12,7 +12,6 @@ namespace file.Core.Models
         public int id { get; set; }
         public string name { get; set; }
         public string lastname { get; set; }
-        public byte[] picture { get; set; }
-        public ICollection<File> Files {get; set;}
+        public ICollection<Attachment> Files { get; set; }
     }
 }
