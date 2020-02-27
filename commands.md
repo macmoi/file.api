@@ -1,6 +1,6 @@
 # file.api
 
-Commands used for creation of this web api
+Commands used for creation of this web api. By: Moises Piñate 😁️
 
 -----------------------------
 ## New solution
@@ -41,3 +41,13 @@ dotnet add file.Persistance/file.Persistance.csproj reference file.Core/file.Cor
 dotnet add file.Services/file.Services.csproj reference file.Core/file.Core.csproj
 dotnet add file.Api/file.Api.csproj reference file.Core/file.Core.csproj file.Services/file.Services.csproj file.Persistance/file.Persistance.csproj
 ```
+-------------------------------
+## Configuring EF Core 
+
+EF Core is necessary to access to our database, in our case we're going to use MySQL Server as DBMS but any other DBMS can be used (i.e: SQL Server, PostgreSQL, MongoDB, Oracle...). To archive this we need to add the dependencies to our project, and also add EFCore to our system because EFCore dosen't come as default with NETCore framework anymore.
+
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+Now we can execute the `dotnet ef` command on the CLI
