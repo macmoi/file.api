@@ -1,9 +1,10 @@
-using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using file.Core.Models;
 
 namespace file.Core.Services
 {
-    public class IUserService
+    public interface IUserService
     {
         Task<IEnumerable<User>> GetAllUsers();
         Task<User> GetUserById(int id);
