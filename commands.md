@@ -57,5 +57,26 @@ Next step to do is add dependencies on the Persistance project. To archive that 
 dotnet add file.Persistance/file.Persistance.csproj package Microsoft.EntityFrameworkCore
 dotnet add file.Persistance/file.Persistance.csproj package Microsoft.EntityFrameworkCore.Design
 dotnet add file.Persistance/file.Persistance.csproj package Pomelo.EntityFrameworkCore.MySql --version 3.1.1
+
+dotnet add file.Api/file.Api.csproj package Microsoft.EntityFrameworkCore
+dotnet add file.Api/file.Api.csproj package Microsoft.EntityFrameworkCore.Design
+dotnet add file.Api/file.Api.csproj package Pomelo.EntityFrameworkCore.MySql --version 3.1.1
 ```
 As you can see, we are using the [Pomelo.EntityFrameworkCore.MySql]() Dependencies, the reason is because Oracle haven't updated their [official driver](https://dev.mysql.com/doc/connector-net/en/connector-net-entityframework-core.html) for MySQL to the last version of NETCore. Pomelo is an Open Source driver developed by the community to bring support for .NETCore 3.X
+
+-------------------------
+## Adding initial migrations
+
+For create DB and add the initial migrations we execute this command
+```bash
+dotnet ef --startup-project file.Api/file.Api.csproj migrations add InitialMigration -p file.Persistance/file.Persistance.csproj -v
+```
+The `--startup-project` flag indicates that `file.Api` will be the entry project for our solution and with the `-p` flag we are indicating that all the migrations will be added on the `file.Persistance` project.
+
+-----------------------
+## Executing migrations
+
+Once initial migrations are generated, we need to apply them to our database, for that execute the next command on CLI
+```bash
+dotnet ef --startup-project file.Api/file.Api.csproj database update
+```
