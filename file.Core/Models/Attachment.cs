@@ -5,7 +5,7 @@ namespace file.Core.Models
         public int id { get; set; }
         public string fileName { get; set; }
         public byte[] file { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int userId { get; set; }
+        public User user { get; set; }
     }
 }
