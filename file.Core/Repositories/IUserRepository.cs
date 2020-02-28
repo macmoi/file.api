@@ -9,6 +9,5 @@ namespace file.Core.Repositories
     {
         Task<IEnumerable<User>> GetAllUsersWithFiles();
         Task<User> GetUserWithFileById(int id);
-        Task<IEnumerable<User>> GetAllUsersWithFileByFileId();
     }
 }
