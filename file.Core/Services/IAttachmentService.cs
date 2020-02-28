@@ -4,7 +4,7 @@ using file.Core.Models;
 
 namespace file.Core.Services
 {
-    public interface IAttachentService
+    public interface IAttachmentService
     {
         Task<IEnumerable<Attachment>> GetAttachmentsWithUser();
         Task<Attachment> GetAttachmenByIdt(int id);
