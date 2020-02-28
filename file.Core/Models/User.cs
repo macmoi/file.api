@@ -6,12 +6,12 @@ namespace file.Core.Models
     {
         public User()
         {
-            Files = new Collection<File>();
+            attachments = new Collection<Attachment>();
         }
 
         public int id { get; set; }
         public string name { get; set; }
         public string lastname { get; set; }
-        public ICollection<Attachment> Files { get; set; }
+        public IList<Attachment> attachments { get; set; }
     }
 }
