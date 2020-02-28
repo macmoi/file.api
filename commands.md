@@ -44,7 +44,7 @@ dotnet add file.Api/file.Api.csproj reference file.Core/file.Core.csproj file.Se
 -------------------------------
 ## Configuring EF Core 
 
-EF Core is necessary to access to our database, in our case we're going to use MySQL Server as DBMS but any other DBMS can be used (i.e: SQL Server, PostgreSQL, MongoDB, Oracle...). To archive this we need to add the dependencies to our project, and also we need to add EFCore to our system because NETCore dosen't come with the ORM by default.
+EF Core is necessary to access to our database, in our case we're going to use MySQL Server as DBMS but any other DBMS can be used (i.e: SQL Server, PostgreSQL, MongoDB, Oracle...). To achieve this we need to add the dependencies to our project, and also we need to add EFCore to our system because NETCore dosen't come with the ORM by default.
 
 ```bash
 dotnet tool install --global dotnet-ef
@@ -52,7 +52,7 @@ dotnet tool install --global dotnet-ef
 
 Now we can execute the `dotnet ef` command on the CLI
 
-Next step to do is add dependencies on the Persistance project. To archive that we execute the following commands inside the root folder of the project (the same folder where solution file are):
+Next step to do is add dependencies on the Persistance project. To achieve that we execute the following commands inside the root folder of the project (the same folder where solution file are):
 ```bash
 dotnet add file.Persistance/file.Persistance.csproj package Microsoft.EntityFrameworkCore
 dotnet add file.Persistance/file.Persistance.csproj package Microsoft.EntityFrameworkCore.Design
