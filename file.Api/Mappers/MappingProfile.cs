@@ -13,8 +13,9 @@ namespace file.Api.Mappers
             CreateMap<Attachment, AttachmentResource>();
 
             // Resources to Domain
+            CreateMap<SaveUserResource, User>();
             CreateMap<UserResource, User>();
-            CreateMap<AttachmentResource, Attachment>();
+            CreateMap<SaveAttachmentResource, Attachment>();
         }
     }
 }
