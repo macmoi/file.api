@@ -19,7 +19,12 @@ namespace file.Persistance.Repositories
             return await _context.Attachments.Include(a => a.user).ToListAsync();
         }
 
-        public async Task<Attachment> GetAttachmentWithMusicsById(int id)
+        public async Task<IEnumerable<Attachment>> GetAttachmentsByUserId(int userId)
+        {
+            return await _context.Attachments.Where(p => p.userId == userId).ToListAsync();
+        }
+
+        public async Task<Attachment> GetAttachmentWithUserById(int id)
         {
             return await _context.Attachments.Include(a => a.user).SingleOrDefaultAsync(a => a.id == id);
         }
