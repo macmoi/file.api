@@ -80,3 +80,20 @@ Once initial migrations are generated, we need to apply them to our database, fo
 ```bash
 dotnet ef --startup-project file.Api/file.Api.csproj database update
 ```
+-----------------------
+## Adding AutoMapper
+Using our services and entities directly on controllers isn't a good practice because it can show some properties or information with required level of authorization to access a see it. With usage of packages like autoMapper we can map specific properties from our models and use DTOs or EntityResources to show information in the presentation layer. To include AutoMapper in our project we execute the following command:
+```bash
+dotnet add file.Api/file.Api.csproj package AutoMapper 
+dotnet add file.Api/file.Api.csproj package AutoMapper.Extensions.Microsoft.DependencyInjection
+```
+After that we need to configure AutoMapper as service in order to use Dependency Injection
+```C#
+public void ConfigureServices(IServiceCollection services)
+{
+    // Add after initial config code...
+
+    services.AddAutoMapper(typeof(Startup));
+}
+```
+And that's it.
