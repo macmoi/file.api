@@ -1,6 +1,9 @@
+using System.IO;
 using AutoMapper;
 using file.Api.Resources;
+using file.Api.Utils;
 using file.Core.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace file.Api.Mappers
 {
@@ -15,7 +18,12 @@ namespace file.Api.Mappers
             // Resources to Domain
             CreateMap<SaveUserResource, User>();
             CreateMap<UserResource, User>();
-            CreateMap<SaveAttachmentResource, Attachment>();
+            CreateMap<SaveAttachmentResource, Attachment>()
+                .ForMember(
+                    dest => dest.file,
+                    opt => opt.ConvertUsing(new FormFileByteArrayValueConverter(), src => src.file)
+                );
+
         }
     }
 }
