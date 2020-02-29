@@ -7,6 +7,6 @@ namespace file.Core.Repositories
     public interface IAttachmentRepository : IRepository<Attachment>
     {
         Task<IEnumerable<Attachment>> GetAllAttachment();
-        Task<Attachment> GetAttachmentWithUserById(int id);
+        Task<IEnumerable<Attachment>> GetAttachmentsByUserId(int userId);
     }
 }
