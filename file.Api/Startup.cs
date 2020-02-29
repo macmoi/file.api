@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using file.Core;
 using file.Core.Services;
 using file.Persistance;
@@ -27,7 +28,8 @@ namespace file.Api
         {
             // Setting controllers
             services.AddControllers();
-
+            services.AddAutoMapper(typeof(Startup));
+            
             // Setting Database
             services.AddDbContextPool<ApiDbContext>(p => 
                 p.UseMySql(Configuration.GetConnectionString("DBConnection"), op => { 
@@ -40,6 +42,7 @@ namespace file.Api
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAttachmentService, AttachmentService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
