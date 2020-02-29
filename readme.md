@@ -67,7 +67,7 @@ Execute the following commands on the root folder of the project (Where the solu
 > cd file.Api
 > dotnet run
 ```
-For **Visual Studio**, the IDE detects the configuration on sln file and executes the entry project in this case our web api project. For execute the project just click on Run button.
+For **Visual Studio**, the IDE detects the configuration on sln file and executes the entry project in this case our web api project. To execute the project just click on Run button.
 
 -------------------------------------
 ## Deploy with Docker
